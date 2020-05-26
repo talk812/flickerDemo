@@ -1,5 +1,5 @@
 //
-//  FirstViewModel.swift
+//  ViewModels.swift
 //  flickerDemo
 //
 //  Created by william on 2020/5/26.
@@ -7,7 +7,38 @@
 //
 
 import Foundation
+import UIKit
+
+protocol RowViewModel {
+    
+}
 
 class FirstViewModel {
-    let rowViewModels = Observable<[RowViewModel]>(value: [])
+    let isDone = Observable<Bool>(value: false)
 }
+
+class SecondViewModel {
+    let rowViewModels = Observable<[RowViewModel]>(value: [])
+    let isLoading = Observable<Bool>(value: false)
+    var type: VC_TYPE = .SEARCH
+}
+
+class photoCellModel: RowViewModel {
+    let photo: Photo?
+    let id: String
+    let photoURL: URL
+    let title: String
+    let type: VC_TYPE
+    let favorite: Observable<Bool>
+    let isLoading = Observable<Bool>(value: false)
+    init(photo: Photo?, id: String,photoURL: URL, title: String, type: VC_TYPE,favorite: Observable<Bool> = Observable<Bool>(value: false)) {
+        self.photo = photo
+        self.id = id
+        self.photoURL = photoURL
+        self.title = title
+        self.type = type
+        self.favorite = favorite
+    }
+}
+
+

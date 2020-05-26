@@ -11,7 +11,7 @@ import UIKit
 class SearchViewController: UIViewController {
     
     lazy var controller: SecondController = {
-        return SecondController()
+        return SecondController( type: .SEARCH)
     }()
     
     var viewModel: SecondViewModel {

@@ -84,9 +84,7 @@ class FirstViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        contentTextField.text = ""
-        perPageTextField.text = ""
-        viewModel.isDone.value = false
+        clearInput()
     }
 
     func initView() {
@@ -115,6 +113,12 @@ class FirstViewController: UIViewController {
             searchVC.input = input
             navigationController?.pushViewController(searchVC, animated: true)
         }
+    }
+    
+    func clearInput() {
+        contentTextField.text = ""
+        perPageTextField.text = ""
+        viewModel.isDone.value = false
     }
 }
 

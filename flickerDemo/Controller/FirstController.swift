@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class FirstController {
+    let viewModel: FirstViewModel
+    
+    init(viewModel: FirstViewModel = FirstViewModel()) {
+        self.viewModel = viewModel
+    }
+}

@@ -15,6 +15,18 @@
 		3D1101E3247CF81B003AA9BB /* flickerDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D1101E1247CF81B003AA9BB /* flickerDemo.xcdatamodeld */; };
 		3D1101E5247CF81D003AA9BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D1101E4247CF81D003AA9BB /* Assets.xcassets */; };
 		3D1101E8247CF81D003AA9BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D1101E6247CF81D003AA9BB /* LaunchScreen.storyboard */; };
+		3D1101F0247CF898003AA9BB /* CloudAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1101EF247CF898003AA9BB /* CloudAPIService.swift */; };
+		3DAC8A40247D02F7001074C7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A3F247D02F7001074C7 /* Photo.swift */; };
+		3DAC8A42247D0A6B001074C7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A41247D0A6B001074C7 /* Extension.swift */; };
+		3DAC8A47247D0B34001074C7 /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A46247D0B34001074C7 /* FirstController.swift */; };
+		3DAC8A49247D0B40001074C7 /* SecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A48247D0B40001074C7 /* SecondController.swift */; };
+		3DAC8A4B247D0B50001074C7 /* ViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A4A247D0B50001074C7 /* ViewModels.swift */; };
+		3DAC8A4F247D0C76001074C7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A4E247D0C76001074C7 /* Observable.swift */; };
+		3DAC8A55247D0D27001074C7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A54247D0D27001074C7 /* SearchViewController.swift */; };
+		3DAC8A57247D1662001074C7 /* MyTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A56247D1662001074C7 /* MyTabBarVC.swift */; };
+		3DAC8A5A247D1DD8001074C7 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A59247D1DD8001074C7 /* PhotoCell.swift */; };
+		3DAC8A5C247D1E18001074C7 /* CellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC8A5B247D1E18001074C7 /* CellConfiguration.swift */; };
+		3DBD5258247D39CD002A7C96 /* myFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD5257247D39CD002A7C96 /* myFavorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +40,18 @@
 		3D1101E4247CF81D003AA9BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D1101E7247CF81D003AA9BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D1101E9247CF81E003AA9BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D1101EF247CF898003AA9BB /* CloudAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAPIService.swift; sourceTree = "<group>"; };
+		3DAC8A3F247D02F7001074C7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		3DAC8A41247D0A6B001074C7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		3DAC8A46247D0B34001074C7 /* FirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
+		3DAC8A48247D0B40001074C7 /* SecondController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondController.swift; sourceTree = "<group>"; };
+		3DAC8A4A247D0B50001074C7 /* ViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels.swift; sourceTree = "<group>"; };
+		3DAC8A4E247D0C76001074C7 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		3DAC8A54247D0D27001074C7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3DAC8A56247D1662001074C7 /* MyTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarVC.swift; sourceTree = "<group>"; };
+		3DAC8A59247D1DD8001074C7 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		3DAC8A5B247D1E18001074C7 /* CellConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfiguration.swift; sourceTree = "<group>"; };
+		3DBD5257247D39CD002A7C96 /* myFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myFavorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,15 +86,83 @@
 			children = (
 				3D1101D6247CF81B003AA9BB /* AppDelegate.swift */,
 				3D1101D8247CF81B003AA9BB /* SceneDelegate.swift */,
-				3D1101DA247CF81B003AA9BB /* FirstViewController.swift */,
-				3D1101DC247CF81B003AA9BB /* SecondViewController.swift */,
+				3DAC8A56247D1662001074C7 /* MyTabBarVC.swift */,
+				3DBD5256247D3942002A7C96 /* ViewController */,
+				3DAC8A58247D1DC4001074C7 /* Cell */,
+				3DAC8A45247D0B23001074C7 /* Controller */,
+				3DAC8A44247D0B1A001074C7 /* ViewModel */,
 				3D1101DE247CF81B003AA9BB /* Main.storyboard */,
 				3D1101E4247CF81D003AA9BB /* Assets.xcassets */,
 				3D1101E6247CF81D003AA9BB /* LaunchScreen.storyboard */,
 				3D1101E9247CF81E003AA9BB /* Info.plist */,
+				3DBD5255247D3931002A7C96 /* CoreData */,
+				3DAC8A3E247D02EB001074C7 /* Model */,
+				3DAC8A43247D0A70001074C7 /* Utilities */,
 				3D1101E1247CF81B003AA9BB /* flickerDemo.xcdatamodeld */,
 			);
 			path = flickerDemo;
+			sourceTree = "<group>";
+		};
+		3DAC8A3E247D02EB001074C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DAC8A3F247D02F7001074C7 /* Photo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3DAC8A43247D0A70001074C7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3DAC8A4E247D0C76001074C7 /* Observable.swift */,
+				3D1101EF247CF898003AA9BB /* CloudAPIService.swift */,
+				3DAC8A41247D0A6B001074C7 /* Extension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3DAC8A44247D0B1A001074C7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DAC8A4A247D0B50001074C7 /* ViewModels.swift */,
+				3DAC8A5B247D1E18001074C7 /* CellConfiguration.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3DAC8A45247D0B23001074C7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3DAC8A46247D0B34001074C7 /* FirstController.swift */,
+				3DAC8A48247D0B40001074C7 /* SecondController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3DAC8A58247D1DC4001074C7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3DAC8A59247D1DD8001074C7 /* PhotoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3DBD5255247D3931002A7C96 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3DBD5257247D39CD002A7C96 /* myFavorite.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		3DBD5256247D3942002A7C96 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D1101DA247CF81B003AA9BB /* FirstViewController.swift */,
+				3DAC8A54247D0D27001074C7 /* SearchViewController.swift */,
+				3D1101DC247CF81B003AA9BB /* SecondViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,11 +236,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAC8A55247D0D27001074C7 /* SearchViewController.swift in Sources */,
+				3DAC8A5A247D1DD8001074C7 /* PhotoCell.swift in Sources */,
+				3DAC8A4F247D0C76001074C7 /* Observable.swift in Sources */,
+				3DAC8A47247D0B34001074C7 /* FirstController.swift in Sources */,
+				3DAC8A40247D02F7001074C7 /* Photo.swift in Sources */,
+				3DAC8A4B247D0B50001074C7 /* ViewModels.swift in Sources */,
 				3D1101E3247CF81B003AA9BB /* flickerDemo.xcdatamodeld in Sources */,
 				3D1101DD247CF81B003AA9BB /* SecondViewController.swift in Sources */,
+				3D1101F0247CF898003AA9BB /* CloudAPIService.swift in Sources */,
 				3D1101DB247CF81B003AA9BB /* FirstViewController.swift in Sources */,
+				3DAC8A5C247D1E18001074C7 /* CellConfiguration.swift in Sources */,
 				3D1101D7247CF81B003AA9BB /* AppDelegate.swift in Sources */,
+				3DAC8A57247D1662001074C7 /* MyTabBarVC.swift in Sources */,
+				3DBD5258247D39CD002A7C96 /* myFavorite.swift in Sources */,
 				3D1101D9247CF81B003AA9BB /* SceneDelegate.swift in Sources */,
+				3DAC8A42247D0A6B001074C7 /* Extension.swift in Sources */,
+				3DAC8A49247D0B40001074C7 /* SecondController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
