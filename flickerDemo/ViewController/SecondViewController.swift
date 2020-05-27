@@ -105,6 +105,7 @@ extension SecondViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         if let cell = cell as? PhotoCell {
             cell.delegate = self
+            cell.type = type
         }
         
         cell.layoutIfNeeded()

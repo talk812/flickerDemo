@@ -36,6 +36,7 @@ class FirstViewController: UIViewController {
         myTextField.borderStyle = .roundedRect
         myTextField.delegate = self
         myTextField.tag = TEXTFIELD_TYPE.CONTENT.rawValue
+        myTextField.addTarget(self, action: #selector(FirstViewController.textFieldDidChange(_:)), for: .editingChanged)
         view.addSubview(myTextField)
         NSLayoutConstraint.activate([myTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      myTextField.bottomAnchor.constraint(equalTo: perPageTextField.topAnchor, constant: -20),
@@ -51,6 +52,7 @@ class FirstViewController: UIViewController {
         myTextField.borderStyle = .roundedRect
         myTextField.delegate = self
         myTextField.tag = TEXTFIELD_TYPE.PERPAGE.rawValue
+        myTextField.addTarget(self, action: #selector(FirstViewController.textFieldDidChange(_:)), for: .editingChanged)
         view.addSubview(myTextField)
         NSLayoutConstraint.activate([myTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      myTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -109,6 +111,10 @@ class FirstViewController: UIViewController {
     }
     
     @objc func startToSearch() {
+        guard contentTextField.text?.isEmpty == false && perPageTextField.text?.isEmpty == false else {
+            viewModel.isDone.value = false
+            return
+        }
         if let searchVC = self.storyboard?.instantiateViewController(identifier: "SecondViewController") as? SecondViewController,
             viewModel.isDone.value == true {
             searchVC.input = input
@@ -120,21 +126,19 @@ class FirstViewController: UIViewController {
     func clearInput() {
         contentTextField.text = ""
         perPageTextField.text = ""
+        input.content = ""
+        input.perPage = ""
         viewModel.isDone.value = false
     }
 }
 
 extension FirstViewController: UITextFieldDelegate {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+    @objc func textFieldDidChange(_ textField: UITextField) {
         switch TEXTFIELD_TYPE.init(rawValue: textField.tag) {
         case .CONTENT:
             input.content = textField.text ?? ""
+            break
         case .PERPAGE:
             input.perPage = textField.text ?? ""
             break
@@ -152,4 +156,10 @@ extension FirstViewController: UITextFieldDelegate {
         }
         viewModel.isDone.value = true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }

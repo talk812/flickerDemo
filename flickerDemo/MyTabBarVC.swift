@@ -13,30 +13,13 @@ enum VC_TYPE: Int {
     case FAVORITE
 }
 
-let TAB_BAR_VC = "tabbarVC"
-
 class MyTabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.delegate = self
-        self.selectedIndex = 0
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name.init(TAB_BAR_VC), object: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+  
     @objc func refresh() {
         if let vc = self.viewControllers?[VC_TYPE.FAVORITE.rawValue] as? SecondViewController {
             vc.controller.start()
@@ -56,9 +39,7 @@ extension MyTabBarVC: UITabBarControllerDelegate {
                 searchVC.popToRootViewController(animated: true)
             }
         case .FAVORITE:
-            if let vc = viewController as? SecondViewController {
-                vc.controller.start()
-            }
+            break
         case .none:
             fatalError()
         }

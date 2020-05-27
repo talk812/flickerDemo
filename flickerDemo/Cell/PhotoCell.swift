@@ -12,6 +12,7 @@ class PhotoCell: UICollectionViewCell, CellConfigurable {
     
     var viewModel: photoCellModel?
     var delegate: secondViewDelegate?
+    var type: VC_TYPE?
     
     lazy var loadingIdicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
@@ -128,7 +129,11 @@ class PhotoCell: UICollectionViewCell, CellConfigurable {
                 myFavorite.sharedInstance.insertData(photo: photo)
             }
         }
-        self.delegate?.refrshMyView()
+        
+        if let type = type, type == .FAVORITE {
+            self.delegate?.refrshMyView()
+        }
+        
         viewModel.favorite.value = !viewModel.favorite.value
     }
     
