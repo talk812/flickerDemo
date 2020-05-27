@@ -11,6 +11,7 @@ import UIKit
 class PhotoCell: UICollectionViewCell, CellConfigurable {
     
     var viewModel: photoCellModel?
+    var delegate: secondViewDelegate?
     
     lazy var loadingIdicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
@@ -56,8 +57,6 @@ class PhotoCell: UICollectionViewCell, CellConfigurable {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
-        button.setImage(#imageLiteral(resourceName: "heart"), for: .selected)
-        button.tintColor = .lightGray
         myImageView.addSubview(button)
         NSLayoutConstraint.activate([button.heightAnchor.constraint(equalToConstant: 30),
                                      button.widthAnchor.constraint(equalToConstant: 30),
@@ -70,6 +69,9 @@ class PhotoCell: UICollectionViewCell, CellConfigurable {
         guard let viewModel = viewModel as? photoCellModel else { return }
         self.viewModel = viewModel
         
+        self.titleLabel.text = viewModel.title
+        self.viewModel?.favorite.value = myFavorite.sharedInstance.checkIDExist(id: viewModel.id)
+        
         viewModel.isLoading.addObserver { [weak self] (isLoading) in
             DispatchQueue.main.async {
                 if isLoading {
@@ -81,7 +83,6 @@ class PhotoCell: UICollectionViewCell, CellConfigurable {
         }
         
         viewModel.isLoading.value = true
-        
         DispatchQueue.global().async {
             CloudAPIService.shared.downloadImage(url: viewModel.photoURL) { [weak self] (image) in
                 DispatchQueue.main.async {
@@ -92,7 +93,6 @@ class PhotoCell: UICollectionViewCell, CellConfigurable {
                 }
             }
         }
-        self.titleLabel.text = viewModel.title
         
         viewModel.favorite.addObserver { [weak self] (favorite) in
             if favorite {
@@ -102,9 +102,6 @@ class PhotoCell: UICollectionViewCell, CellConfigurable {
             }
         }
         
-        if viewModel.type == .FAVORITE {
-            viewModel.favorite.value = true
-        }
         setNeedsLayout()
     }
     
@@ -118,19 +115,21 @@ class PhotoCell: UICollectionViewCell, CellConfigurable {
     
     @objc func favoriteClick(sender: UIButton) {
        
-        sender.isSelected = !sender.isSelected
-        self.viewModel?.favorite.value = sender.isSelected
+        guard let viewModel = self.viewModel else {
+            return
+        }
         
-        if self.viewModel?.type == .FAVORITE {
+        if viewModel.favorite.value {
             if let id = self.viewModel?.id {
                 myFavorite.sharedInstance.removeDataByID(id: id)
-                NotificationCenter.default.post(name: Notification.Name.init(TAB_BAR_VC), object: nil)
             }
         } else {
             if let photo = self.viewModel?.photo {
                 myFavorite.sharedInstance.insertData(photo: photo)
             }
         }
+        self.delegate?.refrshMyView()
+        viewModel.favorite.value = !viewModel.favorite.value
     }
     
     override init(frame: CGRect) {

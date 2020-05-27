@@ -20,7 +20,6 @@ class FirstViewModel {
 class SecondViewModel {
     let rowViewModels = Observable<[RowViewModel]>(value: [])
     let isLoading = Observable<Bool>(value: false)
-    var type: VC_TYPE = .SEARCH
 }
 
 class photoCellModel: RowViewModel {
@@ -28,15 +27,13 @@ class photoCellModel: RowViewModel {
     let id: String
     let photoURL: URL
     let title: String
-    let type: VC_TYPE
     let favorite: Observable<Bool>
     let isLoading = Observable<Bool>(value: false)
-    init(photo: Photo?, id: String,photoURL: URL, title: String, type: VC_TYPE,favorite: Observable<Bool> = Observable<Bool>(value: false)) {
+    init(photo: Photo?, id: String,photoURL: URL, title: String,favorite: Observable<Bool> = Observable<Bool>(value: false)) {
         self.photo = photo
         self.id = id
         self.photoURL = photoURL
         self.title = title
-        self.type = type
         self.favorite = favorite
     }
 }

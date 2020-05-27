@@ -8,15 +8,22 @@
 
 import UIKit
 
+protocol secondViewDelegate {
+    func refrshMyView()
+}
+
 class SecondViewController: UIViewController {
 
     lazy var controller: SecondController = {
-        return SecondController( type: .FAVORITE)
+        return SecondController()
     }()
     
     var viewModel: SecondViewModel {
             return controller.viewModel
     }
+    
+    var input: searchInput?
+    var type: VC_TYPE = .FAVORITE
     
     lazy var collectionView: UICollectionView = {
            let collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
@@ -46,7 +53,11 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         initView()
         initBinding()
-        controller.start()
+        if let input = input {
+            controller.startWithInput(input: input)
+        } else {
+            controller.start()
+        }
     }
     
     func initView() {
@@ -54,6 +65,9 @@ class SecondViewController: UIViewController {
         if let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.itemSize = CGSize(width: width, height: width)
             self.collectionView.setCollectionViewLayout(layout, animated: true)
+        }
+        if let input = input {
+            navigationItem.title = "search result: \(input.content)"
         }
     }
     
@@ -76,7 +90,7 @@ class SecondViewController: UIViewController {
 
 }
 
-extension SecondViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SecondViewController: UICollectionViewDelegate, UICollectionViewDataSource, secondViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  self.viewModel.rowViewModels.value.count
     }
@@ -89,7 +103,15 @@ extension SecondViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.setup(viewModel: rowViewModel)
         }
         
+        if let cell = cell as? PhotoCell {
+            cell.delegate = self
+        }
+        
         cell.layoutIfNeeded()
         return cell
+    }
+    
+    func refrshMyView() {
+        self.controller.start()
     }
 }

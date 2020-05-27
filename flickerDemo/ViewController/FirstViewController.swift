@@ -109,9 +109,10 @@ class FirstViewController: UIViewController {
     }
     
     @objc func startToSearch() {
-        if let searchVC = self.storyboard?.instantiateViewController(identifier: "SearchViewController") as? SearchViewController,
+        if let searchVC = self.storyboard?.instantiateViewController(identifier: "SecondViewController") as? SecondViewController,
             viewModel.isDone.value == true {
             searchVC.input = input
+            searchVC.type = .SEARCH
             navigationController?.pushViewController(searchVC, animated: true)
         }
     }

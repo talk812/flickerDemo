@@ -61,4 +61,18 @@ class myFavorite {
             fatalError()
         }
     }
+    
+    func checkIDExist(id: String) -> Bool {
+        let fetchRequest: NSFetchRequest = PhotoDatas.fetchRequest()
+        let predicate = NSPredicate.init(format: "id == %@", id)
+        fetchRequest.predicate = predicate
+        fetchRequest.fetchLimit = 1
+        do {
+            let bool = try context.count(for: fetchRequest)
+            return bool == 1
+        } catch {
+            print(error)
+            return false
+        }
+    }
 }

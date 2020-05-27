@@ -10,11 +10,9 @@ import Foundation
 
 class SecondController {
     let viewModel: SecondViewModel
-    let type: VC_TYPE
     
-    init(viewModel: SecondViewModel = SecondViewModel(), type: VC_TYPE) {
+    init(viewModel: SecondViewModel = SecondViewModel()) {
         self.viewModel = viewModel
-        self.type = type
     }
     
     func start() {
@@ -38,7 +36,7 @@ class SecondController {
         var rowModels = [RowViewModel]()
         for photo in photoDatas {
             if let url = photo.imageUrl, let title = photo.title, let id = photo.id {
-                let photoCell = photoCellModel.init(photo: nil, id: id, photoURL: url, title: title, type: type)
+                let photoCell = photoCellModel.init(photo: nil, id: id, photoURL: url, title: title)
                 rowModels.append(photoCell)
             }
         }
@@ -50,7 +48,7 @@ class SecondController {
         var rowModels = [RowViewModel]()
         
         for photo in searchData.photos.photo {
-            let photoCell = photoCellModel.init(photo: photo, id: photo.id, photoURL: photo.imageUrl, title: photo.title, type: type)
+            let photoCell = photoCellModel.init(photo: photo, id: photo.id, photoURL: photo.imageUrl, title: photo.title)
             rowModels.append(photoCell)
         }
         
