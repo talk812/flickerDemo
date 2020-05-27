@@ -129,6 +129,7 @@ class FirstViewController: UIViewController {
         input.content = ""
         input.perPage = ""
         viewModel.isDone.value = false
+        contentTextField.becomeFirstResponder()
     }
 }
 
