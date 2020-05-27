@@ -66,6 +66,7 @@ class FirstViewController: UIViewController {
         button.setBackgroundColor(.blue, for: .selected)
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.white, for: .selected)
+        button.isEnabled = false
         view.addSubview(button)
         NSLayoutConstraint.activate([button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      button.topAnchor.constraint(equalTo: perPageTextField.bottomAnchor, constant: 20),
@@ -91,15 +92,14 @@ class FirstViewController: UIViewController {
         contentTextField.placeholder = "欲搜尋內容"
         perPageTextField.placeholder = "每頁呈現數量"
         searchButton.setTitle("搜尋", for: .normal)
-        searchButton.setTitle("搜尋", for: .selected)
         searchButton.addTarget(self, action: #selector(startToSearch), for: .touchUpInside)
-        
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(hideKeyBoard))
         self.view.addGestureRecognizer(tapGesture)
     }
     
     func initBinding() {
         viewModel.isDone.addObserver(fireNow: false) { [weak self] (isDone) in
+            self?.searchButton.isEnabled = isDone
             self?.searchButton.isSelected = isDone
         }
     }
@@ -109,7 +109,8 @@ class FirstViewController: UIViewController {
     }
     
     @objc func startToSearch() {
-        if let searchVC = self.storyboard?.instantiateViewController(identifier: "SearchViewController") as? SearchViewController {
+        if let searchVC = self.storyboard?.instantiateViewController(identifier: "SearchViewController") as? SearchViewController,
+            viewModel.isDone.value == true {
             searchVC.input = input
             navigationController?.pushViewController(searchVC, animated: true)
         }
